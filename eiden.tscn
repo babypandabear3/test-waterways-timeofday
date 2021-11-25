@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://mesh/eiden.glb" type="PackedScene" id=1]
+[ext_resource path="res://mesh/eiden-sword.mesh" type="ArrayMesh" id=2]
+[ext_resource path="res://mesh/eiden-hair.mesh" type="ArrayMesh" id=3]
+
+[node name="eiden" instance=ExtResource( 1 )]
+
+[node name="Skeleton" parent="Armature" index="0"]
+bones/3/bound_children = [ NodePath("BoneAttachment") ]
+bones/7/bound_children = [ NodePath("BoneAttachment2") ]
+
+[node name="BoneAttachment" type="BoneAttachment" parent="Armature/Skeleton" index="1"]
+transform = Transform( 0.997596, -2.98023e-08, 0.0692937, 5.24316e-08, 1, -1.1113e-07, -0.0692937, 1.19209e-07, 0.997596, -1.17122e-08, 0.980663, 0.0569561 )
+bone_name = "head"
+
+[node name="eiden-hair" type="MeshInstance" parent="Armature/Skeleton/BoneAttachment" index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+mesh = ExtResource( 3 )
+material/0 = null
+
+[node name="BoneAttachment2" type="BoneAttachment" parent="Armature/Skeleton" index="2"]
+transform = Transform( -0.8124, 0.578946, 0.0694893, -0.0773887, -0.22517, 0.971241, 0.577942, 0.783659, 0.227732, 0.389657, 0.63294, -0.0592653 )
+bone_name = "weapon.R"
+
+[node name="eiden-sword" type="MeshInstance" parent="Armature/Skeleton/BoneAttachment2" index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+mesh = ExtResource( 2 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
